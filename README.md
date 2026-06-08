@@ -7,7 +7,7 @@
 
 ## קבצים בפרויקט
 * `movie_rating_model.ipynb` – מחברת Jupyter המכילה את כל הקוד מתחילתו ועד סופו.
-* `movie_rating_model.pkl` – המודל הסופי (Elastic Net) השמור יחד עם ה-Pipeline המלא שלו, מוכן לשימוש.
+* `movie_rating_pipeline.pkl` – המודל הסופי (Elastic Net) השמור יחד עם ה-Pipeline המלא שלו, מוכן לשימוש.
 * `requirements.txt` – רשימת הספריות והגרסאות המדויקות הנדרשות להרצת הפרויקט.
 * `README.md` – קובץ הוראות זה.
 
