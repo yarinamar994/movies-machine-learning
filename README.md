@@ -64,3 +64,44 @@ X_new = prepare_data(df_new)
 
 # קבלת התחזיות
 predictions = model.predict(X_new)
+חשוב לקרוא!!!!!!!!!!!!!
+היי חן ואליאור אצלי בפונקציה פריפר דאטה אני לא מוחק שורות שאין בהם ציון כדי שזה יהיה טוב תעשייתי (כי בתעשייה אני אקבל דאטה שהיא בלי דירוג מן הסתם ואז זה ימחק הכל ) עכשיו לא היה לי ברור אם ציפיתם למחיקת שורות או רק שזה יוציא את הפיצרים מוכנים ללמידה , יש לציין שאני יודע לעשות את שתי המקרים . ככה הטסט צריך להתבצע  :
+import pandas as pd
+import numpy as np
+import joblib
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
+test_data_path = r"C:\Users\yarin\Downloads\dataset.csv" 
+model_path = r"C:\Users\yarin\Desktop\פרויקט סרטים\movie_rating_pipeline.pkl" 
+
+print("1. טוען את קובץ המבחן...")
+df_test = pd.read_csv(test_data_path, low_memory=False)
+
+if 'averageRating' in df_test.columns:
+    print("2. מכין נתונים להשוואה (מוחק שורות ללא ציון מהקובץ)...")
+    df_test_clean = df_test.dropna(subset=['averageRating']).copy()
+    y_true = df_test_clean['averageRating']
+else:
+    print("2. לא נמצאה עמודת ציון בקובץ.")
+    df_test_clean = df_test.copy()
+    y_true = None
+
+print("3. מעביר את הנתונים דרך prepare_data...")
+X_test = prepare_data(df_test_clean)
+
+print("4. טוען את המודל מתוך ה-Pickle...")
+model = joblib.load(model_path)
+
+print("5. מפיק תחזיות!")
+predictions = model.predict(X_test)
+
+if y_true is not None:
+    rmse = np.sqrt(mean_squared_error(y_true, predictions))
+    r2 = r2_score(y_true, predictions)
+    
+    print("\n🏆 === ציון המודל === 🏆")
+    print(f"RMSE : {rmse:.4f}")
+    print(f"R²   : {r2:.4f}")
+else:
+    print("\nהנה 15 התחזיות הראשונות:")
+    print(np.round(predictions[:15], 2))
