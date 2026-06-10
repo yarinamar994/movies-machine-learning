@@ -5,7 +5,7 @@
 הפרויקט כולל שלבי טעינת נתונים, ניקוי, הנדסת מאפיינים חכמה (Feature Engineering), בניית Pipelines למניעת זליגת נתונים (Data Leakage), אימון שני מודלים מרכזיים (Elastic Net ו-Random Forest), חיפוש היפר-פרמטרים (Grid Search) והערכת ביצועים באמצעות 10-Fold Cross Validation. כמו כן, בוצעו ניתוחי חריגים (Outliers), בדיקות מובהקות סטטיסטית (Levene's Test) וניתוחי הוגנות (Fairness Analysis).
 
 ## קבצים בפרויקט
-* `movie_rating_model.ipynb` – מחברת Jupyter המכילה את כל הקוד מתחילתו ועד סופו.
+* `movie_rating_model_final.ipynb` – מחברת Jupyter המכילה את כל הקוד מתחילתו ועד סופו.
 * `movie_rating_pipeline.pkl` – המודל הסופי (Elastic Net) השמור יחד עם ה-Pipeline המלא שלו, מוכן לשימוש.
 * `requirements.txt` – רשימת הספריות והגרסאות המדויקות הנדרשות להרצת הפרויקט.
 * `README.md` – קובץ הוראות זה.
